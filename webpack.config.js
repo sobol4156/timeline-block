@@ -4,13 +4,20 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 export default {
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve("./dist"),
+    path: path.resolve( "./dist"),
     filename: "bundle.js",
     publicPath: "/",
     clean: true,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      "@": path.resolve("./src"),
+      "@components": path.resolve("./src/components"),
+      "@data": path.resolve("./src/data"),
+      "@hooks": path.resolve("./src/hooks"),
+      "@styles": path.resolve("./src/styles"),
+    },
   },
   module: {
     rules: [
