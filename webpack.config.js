@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 export default {
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve( "./dist"),
+    path: path.resolve("./dist"),
     filename: "bundle.js",
     publicPath: "/",
     clean: true,
@@ -35,6 +35,12 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "public/assets", to: "assets" },
+        { from: "public/fonts", to: "fonts" },
+      ],
     }),
   ],
   devServer: {
