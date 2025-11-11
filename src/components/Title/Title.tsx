@@ -6,11 +6,12 @@ type TitleProps = {
 };
 
 const Title: React.FC<TitleProps> = ({ title }) => {
+  const formatted = title.replace(/\\n/g, "\n");
   return (
     <Wrapper>
       <Line />
       <TitleText>
-        {title.split("\n").map((line, idx) => (
+        {formatted.split("\n").map((line, idx) => (
           <React.Fragment key={idx}>
             {line}
             <br />
